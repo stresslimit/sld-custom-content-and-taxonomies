@@ -4,6 +4,10 @@
 
 Optimized for WordPress 3.1 but will work with any version 3.0+
 
+# Usage
+
+Instructions are provided within the file itself. We will publish instructions here shortly as well.
+
 # Credits
 
 The class is heavily based on the work of Matt Wiebe and his [Smarter Custom Post Types class](http://somadesign.ca/projects/smarter-custom-post-types/ "Smarter Custom Post Types class")
