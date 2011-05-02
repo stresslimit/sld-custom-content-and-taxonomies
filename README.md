@@ -4,15 +4,11 @@ This is a PHP class to be used in a WordPress theme or plugin. It contains two h
 
 Optimized for WordPress 3.1 but will work with any version 3.0+
 
-- - -
-
 # Credits
 
 The class is heavily based on the work of Matt Wiebe and his [Smarter Custom Post Types class](http://somadesign.ca/projects/smarter-custom-post-types/ "Smarter Custom Post Types class")
 
 This class is built and maintained by [Stresslimit Design](http://stresslimitdesign.com/about-our-wordpress-expertise "Stresslimit Design")
-
-- - -
 
 # License
 
