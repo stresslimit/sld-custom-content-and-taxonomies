@@ -1,6 +1,6 @@
 # SLD Register Post Types & Taxonomies for WordPress
 
-This is a PHP class to be used in a WordPress theme or plugin. It contains two helper classes that allow you to register custom post types and taxonomies much easier and more efficiently than with default WordPress APIs. It also contains a few functions to improve the functionality of custom post types, such as the rewrite API and adding post-type classes in the front-end and admin for easier css.
+2 PHP classes to be used in a WordPress theme or plugin. It contains two helper classes that allow you to register custom post types and taxonomies much easier and more efficiently than with default WordPress APIs. It also contains a few functions to improve the functionality of custom post types, such as the rewrite API and adding post-type classes in the front-end and admin for easier css.
 
 Optimized for WordPress 3.1 but will work with any version 3.0+
 
