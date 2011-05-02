@@ -199,7 +199,7 @@ if ( ! class_exists('SLD_Register_Taxonomy') ) {
 			// meat n potatoes
 			$this->taxonomy = $taxonomy;
 			$this->sing_name = ( $sing_name ) ? $sing_name : $taxonomy;
-			$this->plural_name = ( $plural_name ) ? $plural_name : $sing_name . 's';
+			$this->plural_name = ( $plural_name ) ? $plural_name : $this->sing_name . 's';
 			$this->post_types = ( is_string($post_types) ) ? array($post_types) : $post_types;
 			
 			// a few extra defaults. Mostly for labels. Overridden if proper $args present.
