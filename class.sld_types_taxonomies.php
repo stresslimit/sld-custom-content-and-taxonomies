@@ -188,6 +188,7 @@ if ( ! class_exists('SLD_Register_Taxonomy') ) {
 		
 		
 		public function __construct( $taxonomy = null,  $post_types = null, $sing_name = null, $args = array(), $plural_name = null ) {
+		  		  
 			if ( ! $taxonomy ) {
 				return;
 			}
@@ -195,12 +196,11 @@ if ( ! class_exists('SLD_Register_Taxonomy') ) {
 			  return;
 			}
 			
-			if ( is_string($post_types)) $post_types = array($post_types);
-			
 			// meat n potatoes
 			$this->taxonomy = $taxonomy;
-			$this->sing_name = ( $sing_name ) ? $sing_name : $taxonomy
+			$this->sing_name = ( $sing_name ) ? $sing_name : $taxonomy;
 			$this->plural_name = ( $plural_name ) ? $plural_name : $sing_name . 's';
+			$this->post_types = ( is_string($post_types) ) ? array($post_types) : $post_types;
 			
 			// a few extra defaults. Mostly for labels. Overridden if proper $args present.
 			$this->set_defaults();
