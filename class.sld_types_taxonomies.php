@@ -216,7 +216,7 @@ if ( ! class_exists('SLD_Register_Taxonomy') ) {
 		  $singular = ucwords($this->sing_name);
 		  $plural = ucwords($this->plural_name);
 		  $this->defaults['labels'] = array(
-		      'name' => __( $singular ),
+		      'name' => __( $plural ),
     			'singular_name' => __( $singular ),
 			    'search_items' => __( $plural ),
 			    'popular_items' => __( 'Most used ' . $plural ),
@@ -226,7 +226,11 @@ if ( ! class_exists('SLD_Register_Taxonomy') ) {
 			    'edit_item' => __( 'Edit ' . $singular ),
 			    'update_item' => __( 'Update ' . $singular ),
 			    'add_new_item' => __( 'Add New ' . $singular  ),
-			    'new_item_name' => __( 'New ' . $singular . 'Name' )
+			    'new_item_name' => __( 'New ' . $singular . 'Name' ),
+					'separate_items_with_commas' =>  __( 'Separate '.$plural.' with commas' ),
+					'choose_from_most_used' => __( 'Choose from the most used '.$plural ),
+					'add_or_remove_items' => __( 'Add or remove '.$plural ),
+					'menu_name' => __( $plural ),
 		  );
 		}
 		
