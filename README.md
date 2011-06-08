@@ -1,6 +1,6 @@
 # SLD Register Post Types & Taxonomies for WordPress
 
-2 PHP classes to be used in a WordPress theme or plugin. It contains two helper classes that allow you to register custom post types and taxonomies much easier and more efficiently than with default WordPress APIs. It also contains a few functions to improve the functionality of custom post types, such as the rewrite API and adding post-type classes in the front-end and admin for easier css.
+3 PHP classes to be used in a WordPress theme or plugin. It contains three helper classes that allow you to register custom post types and taxonomies (and unregister taxonomies) much easier and more efficiently than with default WordPress APIs. It also contains a few functions to improve the functionality of custom post types, such as the rewrite API and adding post-type classes in the front-end and admin for easier css.
 
 Optimized for WordPress 3.1 but will work with any version 3.0+
 
@@ -10,9 +10,15 @@ Instructions are provided within the file itself. We will publish instructions h
 
 # Credits
 
-The class is heavily based on the work of Matt Wiebe and his [Smarter Custom Post Types class](http://somadesign.ca/projects/smarter-custom-post-types/ "Smarter Custom Post Types class")
+The class is based on the original work of Matt Wiebe and his [Smarter Custom Post Types class](http://somadesign.ca/projects/smarter-custom-post-types/ "Smarter Custom Post Types class")
 
-This class is built and maintained by [Stresslimit Design](http://stresslimitdesign.com/about-our-wordpress-expertise "Stresslimit Design")
+This class is built and maintained by [Stresslimit Design](http://stresslimitdesign.com/about-our-wordpress-expertise "Stresslimit Design") & [Joachim Kudish](http://jkudish.com "Joachim Kudish")
+
+# Change log
+
+1.0 added ability to unregister taxonomies
+
+0.9 initial commit to github
 
 # License
 

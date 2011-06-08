@@ -1,12 +1,12 @@
 <?php
 
 /**
-* @author stresslimit
-* @link <http://stresslimitdesign.com>
-* @version 0.9
+* @author Joachim Kudish | stresslimit 
+* @link <http://stresslimitdesign.com> <http://jkudish.com>
+* @version 1.0
 * 
 * Description: this class allows us to register new post types easily 
-* Heavily based on the work of Matt Wiebe @link <http://somadesign.ca>
+* Based on the work of Matt Wiebe @link <http://somadesign.ca>
 *
 */
 
@@ -260,6 +260,66 @@ if ( ! class_exists('SLD_Register_Taxonomy') ) {
 		function sld_register_taxonomy( $taxonomy = null,  $post_types = null, $sing_name = null, $args = array(), $plural_name = null ) {
 			$custom_taxonomy = new SLD_Register_Taxonomy( $taxonomy, $post_types, $sing_name, $args, $plural_name );
 		}
-	}
+	} // end if function exists
+} // end if class exists
 
-} // end if class exists	  
+if ( ! class_exists('SLD_Unregister_Taxonomy') ) {
+
+	class SLD_Unregister_Taxonomy {
+	  private $taxonomy;
+		private $post_type;
+		
+		public function __construct( $taxonomy = null,  $post_type = null) {
+		  		  
+			if ( ! $taxonomy ) {
+				return;
+			}
+			if ( ! $post_type ) {
+			  return;
+			}
+			
+			$this->taxonomy = $taxonomy;
+			$this->post_type = $post_type;
+			
+			// magic man
+			$this->add_actions();
+
+		}
+		
+		public function add_actions() {
+			add_action( 'init', array($this, 'unreregister_taxonomies') );
+		}
+		
+		public function	unreregister_taxonomies() {
+	  	global $wp_taxonomies;  
+			if ( !isset($wp_taxonomies[$this->taxonomy]) || !get_post_type_object($this->post_type) ) return false; 
+			foreach (array_keys($wp_taxonomies[$this->taxonomy]->object_type) as $array_key) { 
+				if ($wp_taxonomies[$this->taxonomy]->object_type[$array_key] == $array_key) { 
+					unset ($wp_taxonomies[$this->taxonomy]->object_type[$array_key]); 
+					return true; 
+				} 
+			} 
+			return false; 
+		}
+			
+  
+  } // end SLD_Unregister_Register_Taxonomy class
+  
+  /**
+	 * A helper function for the SLD_Register_Taxonomy class. Because typing "new" is hard.
+	 * 
+	 * @uses SLD_Register_Taxonomy class
+	 * @param string $taxonomy The taxonomy to register
+	 * @param mixed $post_types The posts types to register the taxonomies for
+	 * @param string $sing_name The singular name to be used in labels for the taxonomy
+	 * @param array $args The arguments to pass into @link register_taxonomy(). Good defaults provided.
+	 * @param string $plural_name The plural name to be used in labels for the taxonomy. If left off, an "s" will be appended to your taxonomy, which will break some words. (person, box, ox. Oh, English.)
+	 **/
+
+	if ( ! function_exists( 'sld_unregister_taxonomy' ) && class_exists( 'SLD_Unregister_Taxonomy' ) ) {
+		function sld_unregister_taxonomy($taxonomy, $object_type) { 
+			$remove_taxonomy = new SLD_Unregister_Taxonomy( $taxonomy, $object_type );
+		}
+	} // end if function exists
+} // end if class exists
+
