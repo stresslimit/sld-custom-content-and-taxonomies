@@ -16,6 +16,8 @@ This class is built and maintained by [Stresslimit Design](http://stresslimitdes
 
 # Change log
 
+1.1 Adding better defaults, and fixing rewrite rules (since 3.1 does most of it very well out of the box). Good & stable release now.
+
 1.0 added ability to unregister taxonomies
 
 0.9 initial commit to github

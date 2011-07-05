@@ -3,7 +3,7 @@
 /**
 * @author Joachim Kudish | stresslimit 
 * @link <http://stresslimitdesign.com> <http://jkudish.com>
-* @version 1.0
+* @version 1.1
 * 
 * Description: this class allows us to register new post types easily 
 * Based on the work of Matt Wiebe @link <http://somadesign.ca>
@@ -35,16 +35,7 @@ if ( ! class_exists('SLD_Register_Post_Type') ) {
 		private $post_slug;
 		private $args;
 		private $post_type_object;
-
-		private $defaults = array(
-			'show_ui' => true,
-			'public' => true,
-			'supports' => array('title', 'editor', 'thumbnail'),
-			'publicly_queryable' => true,
-			'exclude_from_search' => false,
-			'capability_type' => 'post',
-			
-		);
+		private $defaults;
 		
 		public function __construct( $post_type = null, $args = array(), $custom_plural = false ) {
 			if ( ! $post_type ) {
@@ -55,9 +46,8 @@ if ( ! class_exists('SLD_Register_Post_Type') ) {
 			$this->post_type = $post_type;
 			$this->post_slug = ( $custom_plural ) ? $custom_plural : $post_type . 's';
 			
-			// a few extra defaults. Mostly for labels. Overridden if proper $args present.
-			$this->set_defaults();
 			// sort out those $args
+			$this->set_defaults();
 			$this->args = wp_parse_args($args, $this->defaults);
 			
 			// magic man
@@ -67,6 +57,19 @@ if ( ! class_exists('SLD_Register_Post_Type') ) {
 		}
 		
 		private function set_defaults() {
+
+			$this->defaults = array(
+				'show_ui' => true,
+				'public' => true,
+				'supports' => array('title', 'editor', 'thumbnail'),
+				'publicly_queryable' => true,
+				'query_var' => true,
+				'exclude_from_search' => false,
+				'capability_type' => 'post',
+				'has_archive' => true,
+				'rewrite' => array('slug' => $this->post_slug, 'with_front' => false),
+			);
+			
 			$plural = ucwords( $this->post_slug );
 			$singular = ucwords( $this->post_type );
 			
@@ -90,7 +93,6 @@ if ( ! class_exists('SLD_Register_Post_Type') ) {
 
 		public function add_filters() {
 			add_filter( 'generate_rewrite_rules', array($this, 'add_rewrite_rules') );
-			add_filter( 'template_include', array($this, 'template_include') );
 			add_filter( 'body_class', array($this, 'body_classes') );
 			if (is_admin()) add_filter( 'admin_body_class', array($this, 'admin_body_classes') );
 		}
@@ -107,32 +109,13 @@ if ( ! class_exists('SLD_Register_Post_Type') ) {
 			$new_rules[$this->post_slug . '/page/?([0-9]{1,})/?$'] = 'index.php?post_type=' . $this->post_type . '&paged=' . $wp_rewrite->preg_index(1);
 			$new_rules[$this->post_slug . '/(feed|rdf|rss|rss2|atom)/?$'] = 'index.php?post_type=' . $this->post_type . '&feed=' . $wp_rewrite->preg_index(1);
 			$new_rules[$this->post_slug . '/?$'] = 'index.php?post_type=' . $this->post_type;
-
+		
 			$wp_rewrite->rules = array_merge($new_rules, $wp_rewrite->rules);
 			return $wp_rewrite;
 		}
 
 		public function register_post_type() {
 			register_post_type( $this->post_type, $this->args );		
-		}
-
-		public function template_include( $template ) {
-			if ( get_query_var('post_type') == $this->post_type ) {
-				
-				if ( is_single() ) {
-					if ( $single = locate_template( array( $this->post_type.'/single.php') ) )
-						return $single;
-				}
-				else { // loop
-					return locate_template( array(
-						$this->post_type . '/index.php',
-						$this->post_type . '.php', 
-						'index.php' 
-					));
-				}
-
-			}
-			return $template;
 		}
 
 		public function body_classes( $c ) {
