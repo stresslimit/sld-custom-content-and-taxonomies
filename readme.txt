@@ -19,6 +19,8 @@ We use it in many of our sites here @ <http://stresslimitdesign.com> and here @ 
 
 Originally based on the work of Matt Wiebe @ <http://somadesign.ca/projects/smarter-custom-post-types/>
 
+You can follow development of this plugin on GitHub @ <https://github.com/jkudish/sld-custom-content-and-taxonomies>
+
 == Installation ==
 
 1. Upload the `sld-custom-content-and-taxonomies` folder to the `/wp-content/plugins/` directory, use SVN to manage WordPress and plugins installation or just search for the plugin in the Plugins tab and install it!
