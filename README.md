@@ -24,9 +24,9 @@ We use it in many of our sites [here](http://stresslimitdesign.com) and [here](h
 
 # Credits
 
-This class is built and maintained by [Stresslimit Design](http://stresslimitdesign.com/about-our-wordpress-expertise "Stresslimit Design") & [Joachim Kudish](http://jkudish.com "Joachim Kudish")
+This plugin is built and maintained by [Stresslimit Design](http://stresslimitdesign.com/about-our-wordpress-expertise "Stresslimit Design") & [Joachim Kudish](http://jkudish.com "Joachim Kudish")
 
-The class is based on the original work of Matt Wiebe and his [Smarter Custom Post Types class](http://somadesign.ca/projects/smarter-custom-post-types/ "Smarter Custom Post Types class")
+The plugin is based on the original work of Matt Wiebe and his [Smarter Custom Post Types class](http://somadesign.ca/projects/smarter-custom-post-types/ "Smarter Custom Post Types class")
 
 # Change log
 
