@@ -99,11 +99,11 @@ class SLD_Register_Post_Type {
 	public function admin_body_classes() {
 		global $wpdb, $post;
 		$screen = get_current_screen(); 
-		$post_type = $screen->post_type;
-		if ( is_admin() ) {
+		$post_type = (isset($screen->post_type)) ? $screen->post_type : null;
+		if ( is_admin() && (isset($post_type) && $post_type) ) {
 			$c = 'type-' . $post_type;
+			return $c;
 		}
-		return $c;
 	}
 
 } // end SLD_Register_Post_Type class

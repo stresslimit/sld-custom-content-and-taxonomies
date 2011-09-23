@@ -30,6 +30,10 @@ The plugin is based on the original work of Matt Wiebe and his [Smarter Custom P
 
 # Change log
 
+= 1.3.1 =
+
+Bug fix in the admin body class function
+
 = 1.3 =
 
 Various bug fixes and changes in the readme
@@ -58,7 +62,7 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program; if not, write to:
 
-Free Software Foundation, Inc.  
-51 Franklin Street, Fifth Floor,   
-Boston, MA  
+Free Software Foundation, Inc.
+51 Franklin Street, Fifth Floor,
+Boston, MA
 02110-1301, USA.
