@@ -20,3 +20,11 @@
 .DS_Store
 
 .svn/dir-prop-base
+
+.svn/lock
+
+.svn/tmp/text-base/readme.txt.svn-base
+
+.svn/tmp/text-base/class.register-post-type.php.svn-base
+
+.svn/tmp/text-base/sld-custom-content-and-taxonomies.php.svn-base
