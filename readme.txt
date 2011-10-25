@@ -3,7 +3,7 @@ Contributors: jkudish, cvernon, stresslimit
 Tags: custom post types, custom content types, custom taxonomies, post type, taxonomy
 Requires at least: 3.0
 Tested up to: 3.3
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 
 == Description ==
 
@@ -38,6 +38,10 @@ This is a developer plugin, you have to put some php code in your functions.php 
 1. No screenshots, sorry.
 
 == Changelog ==
+
+= 1.3.2 =
+
+Rewrite admin body class function
 
 = 1.3.1 =
 

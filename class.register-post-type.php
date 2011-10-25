@@ -64,7 +64,7 @@ class SLD_Register_Post_Type {
 	public function add_filters() {
 		add_filter( 'generate_rewrite_rules', array($this, 'add_rewrite_rules') );
 		add_filter( 'body_class', array($this, 'body_classes') );
-		if (is_admin()) add_filter( 'admin_body_class', array($this, 'admin_body_classes') );
+		if (is_admin()) add_filter( 'admin_body_class', array($this, 'admin_body_class') );
 	}
 	
 	public function context_fixer() {
@@ -96,13 +96,12 @@ class SLD_Register_Post_Type {
 		return $c;
 	}
 	
-	public function admin_body_classes() {
-		global $wpdb, $post;
+	public function admin_body_class( $c ) {
 		$screen = get_current_screen(); 
 		$post_type = (isset($screen->post_type)) ? $screen->post_type : null;
-		if ( is_admin() && (isset($post_type) && $post_type) ) {
+		if (isset($post_type) && $post_type == $this->post_type) {
 			$c = 'type-' . $post_type;
-			return $c;
+			echo $c;
 		}
 	}
 
