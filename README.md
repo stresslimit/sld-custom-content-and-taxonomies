@@ -17,6 +17,11 @@ If you prefer to use this as part of your plugin or theme instead of as a stand-
 It gives 3 functions, each that wraps or extends a core WordPress function with a few extras:
 
 1. `sld_register_post_type( 'type', $optional_args, $optional_custom_plural )` which extends `register_post_type()`
+    Here's how to use it:
+
+    <script src="https://gist.github.com/1338686.js"></script>
+
+
 2. `sld_register_taxonomy( 'taxonomy', $post_types, $optional_singular_name, $optional_args, $optional_plural_name )` which extends `register_taxonomy()`
 3. `sld_unregister_taxonomy( 'taxonomy', $object_type )` which unregisters taxonomies (core taxonomies or those registered by other plugins)
 
