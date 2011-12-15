@@ -30,6 +30,10 @@ The plugin is based on the original work of Matt Wiebe and his [Smarter Custom P
 
 # Change log
 
+= 1.4 =
+
+Removed old rewrite rules that aren't necessary since WP 3.1
+
 = 1.3.2 =
 
 Rewrite admin body class function

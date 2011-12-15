@@ -76,10 +76,8 @@ class SLD_Register_Post_Type {
 
 	public function add_rewrite_rules( $wp_rewrite ) {
 		$new_rules = array();
-		$new_rules[$this->post_slug . '/page/?([0-9]{1,})/?$'] = 'index.php?post_type=' . $this->post_type . '&paged=' . $wp_rewrite->preg_index(1);
 		$new_rules[$this->post_slug . '/(feed|rdf|rss|rss2|atom)/?$'] = 'index.php?post_type=' . $this->post_type . '&feed=' . $wp_rewrite->preg_index(1);
-		$new_rules[$this->post_slug . '/?$'] = 'index.php?post_type=' . $this->post_type;
-	
+
 		$wp_rewrite->rules = array_merge($new_rules, $wp_rewrite->rules);
 		return $wp_rewrite;
 	}

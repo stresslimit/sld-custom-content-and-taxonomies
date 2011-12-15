@@ -2,7 +2,7 @@
 /*
 Plugin Name: Stresslimit Custom Content and Taxonomies
 Description: This code-only developer plugin allows you to register new post types & taxonomies easily, with good default values and some extended functionality.
-Version: 1.3.2
+Version: 1.4
 Author: Joachim Kudish, Stresslimit, Colin Vernon
 Author URI: http://stresslimitdesign.com/
 Plugin URI: https://github.com/jkudish/sld-custom-content-and-taxonomies
