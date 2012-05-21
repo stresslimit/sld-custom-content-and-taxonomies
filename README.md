@@ -2,7 +2,7 @@
 
 This code-only developer WordPress plugin allows you to register new post types easily, with good default values and some extended functionality.
 
-NOTE: The 3 classes are now bundled as a WordPress Plugin. We will sync changes between github and the WordPress.org plugin repository 
+NOTE: The 3 classes are now bundled as a [WordPress Plugin](http://wordpress.org/extend/plugins/sld-custom-content-and-taxonomies/). We will sync changes between github and the WordPress.org plugin repository
 
 # Installation
 
@@ -29,9 +29,15 @@ We use it in many of our sites [here](http://stresslimitdesign.com) and [here](h
 
 This plugin is built and maintained by [Stresslimit Design](http://stresslimitdesign.com/about-our-wordpress-expertise "Stresslimit Design") & [Joachim Kudish](http://jkudish.com "Joachim Kudish")
 
+Awesome custom admin icons designed by [Laura Kalbag](http://laurakalbag.com/wordpress-admin-icons/)
+
 The plugin is based on the original work of Matt Wiebe and his [Smarter Custom Post Types class](http://somadesign.ca/projects/smarter-custom-post-types/ "Smarter Custom Post Types class")
 
 # Change log
+
+= 1.5 =
+
+Add the ability to choose a super custom icon for your custom content type in the WP admin section. sld_register_post_type() now accepts a new parameter 'custom_icon' to the optional $args array, which will provide an awesome custom icon to the admin section
 
 = 1.4 =
 

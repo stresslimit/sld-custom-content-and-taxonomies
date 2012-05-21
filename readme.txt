@@ -3,7 +3,7 @@ Contributors: jkudish, cvernon, stresslimit
 Tags: custom post types, custom content types, custom taxonomies, post type, taxonomy
 Requires at least: 3.0
 Tested up to: 3.4 (alpha)
-Stable tag: 1.4
+Stable tag: 1.5
 
 == Description ==
 
@@ -18,6 +18,8 @@ It gives 3 functions, each that wraps or extends a core WordPress function with 
 We use it in many of our sites here @ <http://stresslimitdesign.com> and here @ <http://jkudish.com>
 
 Originally based on the work of Matt Wiebe @ <http://somadesign.ca/projects/smarter-custom-post-types/>
+
+Awesome custom admin icons designed by Laura Kalbag <http://laurakalbag.com/wordpress-admin-icons/>
 
 You can follow development of this plugin on GitHub @ <https://github.com/jkudish/sld-custom-content-and-taxonomies>
 
@@ -38,6 +40,10 @@ This is a developer plugin, you have to put some php code in your functions.php 
 1. No screenshots, sorry.
 
 == Changelog ==
+
+= 1.5 =
+
+Add the ability to choose a super custom icon for your custom content type in the WP admin section. sld_register_post_type() now accepts a new parameter 'custom_icon' to the optional $args array, which will provide an awesome custom icon to the admin section
 
 = 1.4 =
 

@@ -7,6 +7,8 @@ class SLD_Register_Post_Type {
 	private $args;
 	private $post_type_object;
 	private $defaults;
+	private $custom_icon;
+	private $custom_icons;
 	
 	public function __construct( $post_type = null, $args = array(), $custom_plural = false ) {
 		if ( ! $post_type )
@@ -18,6 +20,10 @@ class SLD_Register_Post_Type {
 		
 		// sort out those $args
 		$this->set_defaults();
+		if ( !empty($args['custom_icon']) ) {
+			$this->custom_icon = $args['custom_icon'];
+			unset($args['custom_icon']);
+		}
 		$this->args = wp_parse_args($args, $this->defaults);
 		
 		// here's the magic
@@ -54,17 +60,39 @@ class SLD_Register_Post_Type {
 			'not_found' => 'No ' . $plural . ' found',
 			'not_found_in_trash' => 'No ' . $plural . ' found in Trash'
 		);
+
+		$this->custom_icons = array(
+			'audio',
+			'pound',
+			'clipboard',
+			'bookmark',
+			'jamjar',
+			'locationpin',
+			'calendar',
+			'mobile',
+			'mortarboard',
+			'star',
+			'box',
+			'users',
+			'pencil',
+			'book',
+			'folder',
+			'rectangles',
+			// 'bookmarkbook', // need 32px image from Laura
+			);
 	}
 	
 	public function add_actions() {
-		add_action( 'init', array($this, 'register_post_type') );
-		add_action( 'template_redirect', array($this, 'context_fixer') );
+		add_action( 'init', array(&$this, 'register_post_type') );
+		add_action( 'template_redirect', array(&$this, 'context_fixer') );
+		if ( in_array( @$this->custom_icon, $this->custom_icons ) )
+			add_action( 'admin_head', array(&$this, 'admin_head') );
 	}
 
 	public function add_filters() {
-		add_filter( 'generate_rewrite_rules', array($this, 'add_rewrite_rules') );
-		add_filter( 'body_class', array($this, 'body_classes') );
-		if (is_admin()) add_filter( 'admin_body_class', array($this, 'admin_body_class') );
+		add_filter( 'generate_rewrite_rules', array(&$this, 'add_rewrite_rules') );
+		add_filter( 'body_class', array(&$this, 'body_classes') );
+		if (is_admin()) add_filter( 'admin_body_class', array(&$this, 'admin_body_class') );
 	}
 	
 	public function context_fixer() {
@@ -101,6 +129,21 @@ class SLD_Register_Post_Type {
 			$c = 'type-' . $post_type;
 			echo $c;
 		}
+	}
+
+	public function admin_head() {
+		$icon = $this->custom_icon;
+		$admin_icons = $this->custom_icons;
+		$type = $this->post_type;
+		$url = plugins_url( 'images', __FILE__ );
+		$index = array_search( $icon, $admin_icons );
+		?>
+		<style type="text/css" media="screen">
+		#adminmenu #menu-posts-<?php echo $type ?> div.wp-menu-image { background:transparent url('<?php echo $url ?>/icons16.png') no-repeat <?php echo ( $index * -32 ); ?>px -32px !important; }
+		#adminmenu #menu-posts-<?php echo $type ?>:hover div.wp-menu-image, #adminmenu #menu-posts-<?php echo $type ?>.wp-has-current-submenu div.wp-menu-image { background-position:<?php echo ( $index * -32 ); ?>px 0px!important; }
+		.type-<?php echo $type ?> #icon-edit { background:transparent url('<?php echo $url ?>/icons32.png') <?php echo ( $index * -60 ); ?>px -5px no-repeat; }
+		</style>
+		<?php
 	}
 
 } // end SLD_Register_Post_Type class
