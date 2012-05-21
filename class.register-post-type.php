@@ -83,16 +83,16 @@ class SLD_Register_Post_Type {
 	}
 	
 	public function add_actions() {
-		add_action( 'init', array(&$this, 'register_post_type') );
-		add_action( 'template_redirect', array(&$this, 'context_fixer') );
-		if ( in_array( @$this->custom_icon, $this->custom_icons ) )
-			add_action( 'admin_head', array(&$this, 'admin_head') );
+		add_action( 'init', array($this, 'register_post_type') );
+		add_action( 'template_redirect', array($this, 'context_fixer') );
+		if ( !empty($this->custom_icon) && in_array( $this->custom_icon, $this->custom_icons ) )
+			add_action( 'admin_head', array($this, 'admin_head') );
 	}
 
 	public function add_filters() {
-		add_filter( 'generate_rewrite_rules', array(&$this, 'add_rewrite_rules') );
-		add_filter( 'body_class', array(&$this, 'body_classes') );
-		if (is_admin()) add_filter( 'admin_body_class', array(&$this, 'admin_body_class') );
+		add_filter( 'generate_rewrite_rules', array($this, 'add_rewrite_rules') );
+		add_filter( 'body_class', array($this, 'body_classes') );
+		if (is_admin()) add_filter( 'admin_body_class', array($this, 'admin_body_class') );
 	}
 	
 	public function context_fixer() {

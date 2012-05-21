@@ -43,7 +43,7 @@ This is a developer plugin, you have to put some php code in your functions.php 
 
 = 1.5 =
 
-Add the ability to choose a super custom icon for your custom content type in the WP admin section. sld_register_post_type() now accepts a new parameter 'custom_icon' to the optional $args array, which will provide an awesome custom icon to the admin section
+Add the ability to choose an icon for your custom content type in the WP admin section. sld_register_post_type() now accepts a new parameter 'custom_icon' to the optional $args array, which will provide an awesome custom icon to the admin section
 
 = 1.4 =
 
