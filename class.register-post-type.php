@@ -32,6 +32,10 @@ class SLD_Register_Post_Type {
 
 	}
 	
+	private function unslug( $s ) {
+		return ucwords( str_replace( array('-','_'), ' ', $s ) );
+	}
+	
 	private function set_defaults() {
 
 		$this->defaults = array(
@@ -46,8 +50,8 @@ class SLD_Register_Post_Type {
 			'rewrite' => array('slug' => $this->post_slug, 'with_front' => false),
 		);
 		
-		$plural = ucwords( $this->post_slug );
-		$singular = ucwords( $this->post_type );
+		$plural = $this->unslug( $this->post_slug );
+		$singular = $this->unslug( $this->post_type );
 		
 		$this->defaults['labels'] = array(
 			'name' => $plural,

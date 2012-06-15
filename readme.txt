@@ -2,8 +2,8 @@
 Contributors: jkudish, cvernon, stresslimit
 Tags: custom post types, custom content types, custom taxonomies, post type, taxonomy
 Requires at least: 3.0
-Tested up to: 3.4 (alpha)
-Stable tag: 1.5
+Tested up to: 3.4
+Stable tag: 1.6
 
 == Description ==
 
@@ -40,6 +40,12 @@ This is a developer plugin, you have to put some php code in your functions.php 
 1. No screenshots, sorry.
 
 == Changelog ==
+
+= 1.6 =
+
+Add better support for post types with more than one word (e.g. 'Research Projects'), can now be declared with - or _ between words and the label will be adjusted accordingly. So we can do:
+
+`sld_register_post_type( 'research_project' );` and the admin menu will show a nice 'Research Projects' automatically.
 
 = 1.5 =
 

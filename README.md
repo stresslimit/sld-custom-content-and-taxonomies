@@ -35,6 +35,12 @@ The plugin is based on the original work of Matt Wiebe and his [Smarter Custom P
 
 # Change log
 
+= 1.6 =
+
+Add better support for post types with more than one word (e.g. 'Research Projects'), can now be declared with - or _ between words and the label will be adjusted accordingly. So we can do:
+
+`sld_register_post_type( 'research_project' );` and the admin menu will show a nice 'Research Projects' automatically.
+
 = 1.5 =
 
 Add the ability to choose an icon for your custom content type in the WP admin section. sld_register_post_type() now accepts a new parameter 'custom_icon' to the optional $args array, which will provide an awesome custom icon to the admin section
