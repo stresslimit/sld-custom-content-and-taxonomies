@@ -48,6 +48,7 @@ class SLD_Register_Post_Type {
 			'capability_type' => 'post',
 			'has_archive' => true,
 			'rewrite' => array('slug' => $this->post_slug, 'with_front' => false),
+			'menu_position' => 5,
 		);
 		
 		$plural = $this->unslug( $this->post_slug );
