@@ -31,10 +31,14 @@ class SLD_Register_Taxonomy {
 		$this->add_actions();
 
 	}
-	
+
+	private function unslug( $s ) {
+		return ucwords( str_replace( array('-','_'), ' ', $s ) );
+	}
+
 	public function set_defaults() {
-	  $singular = ucwords($this->sing_name);
-	  $plural = ucwords($this->plural_name);
+	  $singular = $this->unslug( $this->sing_name );
+	  $plural = $this->unslug( $this->plural_name );
 	  $this->defaults['labels'] = array(
 	      'name' => __( $plural ),
  			'singular_name' => __( $singular ),
