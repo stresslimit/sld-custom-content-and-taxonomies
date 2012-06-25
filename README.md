@@ -35,6 +35,14 @@ The plugin is based on the original work of Matt Wiebe and his [Smarter Custom P
 
 # Change log
 
+= 1.6.2 =
+
+Add support for taxonomy names with underscores or dashes, like we did for type in v.1.6
+
+= 1.6.1 =
+
+Somehow our nice default for menu_poition got lost, so we added it back
+
 = 1.6 =
 
 Add better support for post types with more than one word (e.g. 'Research Projects'), can now be declared with - or _ between words and the label will be adjusted accordingly. So we can do:

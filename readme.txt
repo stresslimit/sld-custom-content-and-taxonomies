@@ -3,7 +3,7 @@ Contributors: jkudish, cvernon, stresslimit
 Tags: custom post types, custom content types, custom taxonomies, post type, taxonomy
 Requires at least: 3.0
 Tested up to: 3.4
-Stable tag: 1.6
+Stable tag: 1.6.2
 
 == Description ==
 
@@ -40,6 +40,14 @@ This is a developer plugin, you have to put some php code in your functions.php 
 1. No screenshots, sorry.
 
 == Changelog ==
+
+= 1.6.2 =
+
+Add support for taxonomy names with underscores or dashes, like we did for type in v.1.6
+
+= 1.6.1 =
+
+Somehow our nice default for menu_poition got lost, so we added it back
 
 = 1.6 =
 
